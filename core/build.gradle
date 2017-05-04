@@ -16,20 +16,9 @@ eclipse.project {
 dependencies {
 	compile project(":util")
 	
-	
-	compile ("com.xian.protocl:protocl-core:1.0.4"){  transitive=false }
-	compile ("com.google:inject:1.0.0"){  transitive=false }
-	compile("javassist:javassist:3.20-GA")
-	compile ("com.google:inject:1.0.0"){  transitive=false }
-	compile("org.apache.mina:mina-core:2.0.7"){  transitive=false }
-	compile ("com.caucho:hessian:4.0.38")
-	
-	compile ("org.jetty:jetty-all:${jetty_version}")
-	
-	compile ("org.jetty:jetty-jsp:9.2.1")
-	compile ("org.ow2.asm:asm-all:5.0.4")
-	compile ("javax.servlet:javax.servlet-api:3.1.0")
-	compile ("javax.jstl:jstl:1.2")
+	compile ("com.jolbox:bonecp:0.7.1")
+	compile ("mysql:mysql-connector-java:5.1.33")
+	compile ("com.google:inject:1.0.0")
 }
 
 jar {
