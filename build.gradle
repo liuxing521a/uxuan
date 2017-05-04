@@ -1,95 +1,103 @@
 buildscript {
-    repositories {
-    	maven { url 'http://192.168.1.200:8081/nexus/content/repositories/public/' }
-    	maven { url 'http://192.168.1.200:8081/nexus/content/repositories/libs/' } 
-	    mavenCentral()
+	repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+		mavenCentral()
 	}
-    
-    dependencies {
-    	//compile project(':other_project')
-    	//compile project(path: ':other_project', configuration: 'archives')
-    }
+}
+
+group = "com.uxuan"
+version = "2.0.0"
+ext {
+    appName = "uxuan"
+    uploadURL = "http://192.168.0.250:8081"
+    jetty_version = "9.2.1.v20140609"
 }
 
 allprojects {
-    apply plugin: "eclipse"
-    //apply plugin: 'idea'
 
-	eclipse {
-  	classpath {
-    	downloadSources = true
-    	downloadJavadoc = false
-  		}
+	apply plugin: "idea"
+	apply plugin: "eclipse"
+
+   repositories {
+    	maven { url "http://192.168.0.250:8081/nexus/content/repositories/libs/" }
+        //maven { url "http://127.0.0.1:8081/nexus/content/repositories/libs/" }
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+}
+
+subprojects {
+    apply plugin: "java"
+	version = parent.version
+
+	// apply compiler options
+	gradle.taskGraph.whenReady( { graph ->
+		tasks.withType(JavaCompile).each { javac ->
+			javac.configure {
+				sourceCompatibility '1.8'
+				targetCompatibility '1.8'
+				options.encoding = 'UTF-8'
+			}
+		}
+	})
+
+	configurations.all {
+		dependencies.all { dep ->
+			if (dep instanceof ModuleDependency && !(dep instanceof ProjectDependency)) {
+				if (dep.name == 'junit') {
+					dep.transitive = true
+				} else {
+					dep.transitive = false
+				}
+			}
+		}
 	}
 
-    //idea{
-    //    module{
-    //        inheritOutputDirs = false
-    //        outputDir = file("${buildDir}/classes/main")
-    //    }
-    //}
+	eclipse {
+		classpath {
+			downloadSources = true
+			downloadJavadoc = false
+			defaultOutputDir = file("build/classes")
+		}
+		
+		//eclipseJdt << {
+		//	File f = file('.settings/org.eclipse.core.resources.prefs')
+		//	f.write('eclipse.preferences.version=1\n')
+		//	f.append('encoding/<project>=utf-8')
+		//}
+	}
 
-    version = '1.1.1'
-    group = 'org.itas.core'
-    ext {
-        appName = 'itas-core'
-    }
+	//cleanEclipse << {
+	//	delete '.settings/org.eclipse.core.resources.prefs'
+	//}
+	
+	idea {
+		module{
+			inheritOutputDirs = false
+			downloadJavadoc = true
+			downloadSources = true
 
-    repositories {
-      	maven { url 'http://192.168.1.200:8081/nexus/content/repositories/public/' }
-    	maven { url 'http://192.168.1.200:8081/nexus/content/repositories/libs/' } 
-     	mavenCentral()
-    }
-}
+			outputDir = file("${buildDir}/classes/main")
+		}
+	}
 
-project(":core") {
-    apply plugin: "java"
-
-    dependencies {
-    	compile project(':utils')
-		compile (
-			'com.typesafe:config:1.0.1', 
-			//'com.jolbox:bonecp:0.8.0.RELEASE', 
-			'nio:netty-all:5.0.0.Alpha1', 
-			'org.javassist:javassist:3.18.2-GA',
-			'com.google.guava:guava:17.0',
-			'guice:guice:1.0',
-			'com.mysql.jdbc:mysql-connector:5.1.22',
-			'org.slf4j:slf4j-api:1.7.7',
-			'ch.qos.logback:logback-classic:1.1.2',
-			'ch.qos.logback:logback-core:1.1.2',
-			'junit:junit:4.9'
-		)
-    }
-}
-
-project(":utils") {
-    apply plugin: "java"
 
     dependencies {
-		compile (
-			'ch.qos.logback:logback-classic:1.1.2',
-			'ch.qos.logback:logback-core:1.1.2',
-			'org.slf4j:slf4j-api:1.7.7',
-			'junit:junit:4.9'
-		)
+        compile("log4j:log4j:1.2.17") {  transitive=false }
+        compile("ch.qos.logback:logback-classic:1.1.2") {  transitive=false }
+        compile("ch.qos.logback:logback-core:1.1.2") {  transitive=false }
+        compile("org.slf4j:slf4j-api:1.7.6") {  transitive=false }
+        //runtime("ch.qos.logback:logback-classic:1.1.2")
+        
+        testCompileOnly("junit:junit:4.11") {
+         	//exclude(group:"org.hamcrest", module:"hamcrest-core")
+        }
     }
+
 }
 
-project(":common") {
-    apply plugin: "java"
-
-    dependencies {
-		compile (
-			'ch.qos.logback:logback-classic:1.1.2',
-			'ch.qos.logback:logback-core:1.1.2',
-			'org.slf4j:slf4j-api:1.7.7',
-			'junit:junit:4.9'
-		)
-    }
-}
 
 task wrapper(type: Wrapper) {  
-	gradleVersion = '2.1'  
-	distributionUrl = 'http://192.168.1.200/gradle-2.1-all.zip'
+	gradleVersion = "3.21"  
+	distributionUrl = "http://192.168.0.250/gradle-2.13-all.zip"
 }

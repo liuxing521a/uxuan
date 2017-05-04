@@ -6,7 +6,7 @@ sourceCompatibility = 1.8
 //sourceSets.main.java.srcDirs = [ "java/", "resources/", "test" ]
 
 ext {
-    archiveBaseName = appName + "-core"
+    archiveBaseName = appName + "-mvc"
 }
 
 eclipse.project {

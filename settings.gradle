@@ -1,1 +1,8 @@
-include 'core', 'utils','common'
+if (!JavaVersion.current().java8Compatible) {
+    throw new GradleException( "Gradle must be run with Java 8" )
+}
+
+rootProject.name = "uxuan"
+include "mvc"
+include "core"
+include "util"
