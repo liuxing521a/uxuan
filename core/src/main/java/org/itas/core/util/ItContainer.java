@@ -13,10 +13,11 @@ import java.util.Map.Entry;
 
 import org.itas.common.Pair;
 import org.itas.common.Utils.Objects;
-import org.itas.core.EnumByte;
-import org.itas.core.EnumInt;
-import org.itas.core.EnumString;
-import org.itas.core.HashId;
+
+import com.uxuan.core.EnumByte;
+import com.uxuan.core.EnumInt;
+import com.uxuan.core.EnumString;
+import com.uxuan.core.HashID;
 
 /**
  * 对象基类的提供处理集合的方法
@@ -284,9 +285,9 @@ public class ItContainer {
 
 	private static Object toValue(Class<?> clazz, Object o) {
 		if (simpleType.isType(clazz)) {
-			return ((HashId) o).getId();
+			return ((HashID) o).getId();
 		} else if (resourceType.isType(clazz)) {
-			return ((HashId) o).getId();
+			return ((HashID) o).getId();
 		} else if (enumByteType.isType(clazz)) {
 			return ((EnumByte) o).key();
 		} else if (enumIntType.isType(clazz)) {

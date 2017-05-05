@@ -16,6 +16,7 @@ eclipse.project {
 dependencies {
 	compile project(":util")
 	
+	compile("javassist:javassist:3.20-GA")
 	compile ("com.jolbox:bonecp:0.7.1")
 	compile ("mysql:mysql-connector-java:5.1.33")
 	compile ("com.google:inject:1.0.0")

@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.itas.core.Builder;
-import org.itas.core.DoubleException;
-import org.itas.core.Pool.ResPool;
-import org.itas.core.Resource;
+import com.uxuan.core.Builder;
+import com.uxuan.core.DoubleException;
+import com.uxuan.core.Resource;
+import com.uxuan.core.Pool.ResPool;
 
 @SuppressWarnings("unchecked")
 final class ResPoolImpl implements ResPool {

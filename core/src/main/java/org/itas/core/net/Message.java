@@ -8,7 +8,8 @@ import io.netty.util.AttributeKey;
 import org.itas.buffer.SendAble;
 import org.itas.common.Utils.Objects;
 import org.itas.common.collection.CircularQueue;
-import org.itas.core.User;
+
+import com.uxuan.core.User;
 
 public class Message {
 	

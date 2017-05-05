@@ -1,9 +1,9 @@
 package org.itas.core.bytecode;
 
+import com.uxuan.core.CallBack;
+
 import javassist.CtClass;
 import javassist.CtField;
-
-import org.itas.core.CallBack;
 
 
 

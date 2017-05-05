@@ -1,8 +1,9 @@
 package org.itas.core.dispatch;
 
-import org.itas.core.Dispatch;
-import org.itas.core.User;
 import org.itas.core.net.Message;
+
+import com.uxuan.core.Dispatch;
+import com.uxuan.core.User;
 
 public class JsonDispatch extends Dispatch {
 

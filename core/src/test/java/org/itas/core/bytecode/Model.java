@@ -6,17 +6,18 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import org.itas.core.EnumByte;
-import org.itas.core.EnumInt;
-import org.itas.core.EnumString;
-import org.itas.core.GameObject;
-import org.itas.core.Simple;
 import org.itas.core.annotation.Clazz;
 import org.itas.core.annotation.SQLEntity;
 import org.itas.core.annotation.Size;
 
+import com.uxuan.core.EnumByte;
+import com.uxuan.core.EnumInt;
+import com.uxuan.core.EnumString;
+import com.uxuan.core.BaseObject;
+import com.uxuan.core.Simple;
+
 @SQLEntity("model")
-public class Model extends GameObject {
+public class Model extends BaseObject {
 
 	public enum SexType implements EnumByte {
 		man {
@@ -327,7 +328,7 @@ public class Model extends GameObject {
 	}
 
 	@Override
-	protected <T extends GameObject> T autoInstance(String Id) {
+	protected <T extends BaseObject> T autoInstance(String Id) {
 		return null;
 	}
 

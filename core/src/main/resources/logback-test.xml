@@ -1,74 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{yyyy-mm-dd HH:mm:ss}[%thread][%-5level]: %msg%n</pattern>
-		</encoder>
-	</appender>
 
-	<appender name="log-trace" class="ch.qos.logback.core.ConsoleAppender">
+	<!-- 控制台输出 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 匹配文件输出格式 -->
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{yyyy-mm-dd HH:mm:ss}[%thread][%-5level]: %msg%n</pattern>
+			<Pattern>%d{yyyy-MM-dd  HH:mm:ss} %-5level %logger{80} - %msg%n</Pattern>
 		</encoder>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>TRACE</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
 	</appender>
-	<appender name="log-debug" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{yyyy-mm-dd HH:mm:ss}[%thread][%-5level]: %msg%n</pattern>
-		</encoder>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>DEBUG</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-	</appender>
-	<appender name="log-info" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{yyyy-mm-dd HH:mm:ss}[%thread][%-5level]: %msg%n</pattern>
-		</encoder>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>INFO</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-	</appender>
-	<appender name="log-error" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<pattern>%d{yyyy-mm-dd HH:mm:ss}[%thread][%-5level]: %msg%n</pattern>
-		</encoder>
-		<filter class="ch.qos.logback.classic.filter.LevelFilter">
-			<level>ERROR</level>
-			<onMatch>ACCEPT</onMatch>
-			<onMismatch>DENY</onMismatch>
-		</filter>
-	</appender>
+	
 
-
+	<!-- 日志过滤 -->
 	<logger name="com.jolbox.bonecp" additivity="false" level="TRACE">
-		<appender-ref ref="log-debug" />
+		<appender-ref ref="console" />
 	</logger>
-
-	<logger name="log-trace" additivity="false" level="TRACE">
-		<appender-ref ref="log-trace" />
+	
+	<logger name="com.uxuan.util" additivity="false" level="TRACE"> 
+		<appender-ref ref="console" />
 	</logger>
-
-	<logger name="log-debug" additivity="false" level="DEBUG">
-		<appender-ref ref="log-debug" />
-	</logger>
-
-	<!-- <logger name="log-info" additivity="false" level="INFO"> -->
-	<!-- <appender-ref ref="log-info" /> -->
-	<!-- </logger> -->
-
-	<logger name="log-error" additivity="false" level="ERROR">
-		<appender-ref ref="log-error" />
-	</logger>
-
 
 	<root level="INFO">
-		<appender-ref ref="STDOUT" />
+		<appender-ref ref="console" />
 	</root>
 </configuration>

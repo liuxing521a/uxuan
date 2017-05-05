@@ -1,10 +1,11 @@
 package org.itas.core.bytecode;
 
-import org.itas.core.GameObjectAotuID;
 import org.itas.core.annotation.SQLEntity;
 
+import com.uxuan.core.BaseObjectWithAutoID;
+
 @SQLEntity("item")
-public class Item extends GameObjectAotuID {
+public class Item extends BaseObjectWithAutoID {
 
 	protected Item(String Id) {
 		super(Id);

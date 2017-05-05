@@ -12,9 +12,10 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.itas.common.Utils.ClassUtils;
-import org.itas.core.Builder;
 import org.itas.core.util.Constructors;
 import org.itas.core.util.ItPaths;
+
+import com.uxuan.core.Builder;
 
 abstract class XmlLoader implements Constructors {
 	

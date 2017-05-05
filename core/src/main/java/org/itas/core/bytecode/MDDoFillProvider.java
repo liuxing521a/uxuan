@@ -5,7 +5,8 @@ import javassist.CtField;
 import javassist.CtMethod;
 
 import org.itas.common.ItasException;
-import org.itas.core.CallBack;
+
+import com.uxuan.core.CallBack;
 
 
 /**

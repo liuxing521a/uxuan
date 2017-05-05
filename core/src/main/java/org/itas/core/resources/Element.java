@@ -3,9 +3,8 @@ package org.itas.core.resources;
 import java.util.Collections;
 import java.util.List;
 
-import org.itas.core.Builder;
-
 import com.google.common.collect.Lists;
+import com.uxuan.core.Builder;
 
 public final class Element {
 

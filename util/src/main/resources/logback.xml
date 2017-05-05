@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<!-- 日志输入目录 -->
+	<property name="LOG_HOME" value="logs" />
+	<!-- 日志输出格式 -->
+	<property name="LOG_LAYOUT" value="%d{yyyy-MM-dd  HH:mm:ss} %-5level %logger{80} - %msg%n" />
+
+	<!-- 控制台输出 -->
+	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 匹配文件输出格式 -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>${LOG_LAYOUT}</Pattern>
+		</encoder>
+	</appender>
+
+	<!-- 文件输出 -->
+	<appender name="trace" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- 输出文件名 -->
+		<File>${LOG_HOME}/trace.log</File>
+		<!-- 匹配文件输出格式 -->
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_LAYOUT}</pattern>
+		</encoder>	
+		
+		<!-- 日志级别过滤 -->
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>TRACE</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		
+		<!-- 时间滚动日志 -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/trace.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<MaxHistory>60</MaxHistory>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/debug.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_LAYOUT}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/debug.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/info.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_LAYOUT}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/info.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="warn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/warn.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_LAYOUT}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>WARN</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/warn.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/error.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_LAYOUT}</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>ERROR</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/error.%d{yyyy-MM-dd}.log
+			</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+	</appender>
+	
+	<appender name="other" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${LOG_HOME}/other.log</File>
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>${LOG_LAYOUT}</pattern>
+		</encoder>
+		<!-- 
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+			<onMatch>ACCEPT</onMatch>
+			<onMismatch>DENY</onMismatch>
+		</filter> -->
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/other.%d{yyyy-MM-dd}.log</FileNamePattern>
+			<MaxHistory>30</MaxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<!-- 日志过滤 -->
+	<logger name="com.jolbox.bonecp" additivity="false" level="TRACE">
+		<appender-ref ref="debug" />
+		<appender-ref ref="console" />
+	</logger>
+	
+	<logger name="com.uxuan" additivity="false" level="TRACE"> 
+		<appender-ref ref="trace" /> 
+		<appender-ref ref="debug" /> 
+		<appender-ref ref="info"  /> 
+		<appender-ref ref="warn" /> 
+		<appender-ref ref="error" /> 
+		<appender-ref ref="console" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="other" />
+		<appender-ref ref="console" />
+	</root>
+</configuration>

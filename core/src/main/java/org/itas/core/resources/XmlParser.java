@@ -2,7 +2,7 @@ package org.itas.core.resources;
 
 import java.nio.file.Path;
 
-import org.itas.core.Parser;
+import com.uxuan.core.Parser;
 
 public class XmlParser implements Parser {
 	

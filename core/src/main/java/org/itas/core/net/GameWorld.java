@@ -8,11 +8,11 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 import org.itas.buffer.SendAble;
 import org.itas.common.Logger;
-import org.itas.core.CallBack;
-import org.itas.core.User;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
+import com.uxuan.core.CallBack;
+import com.uxuan.core.User;
 
 /**
  * <p>游戏中</p>

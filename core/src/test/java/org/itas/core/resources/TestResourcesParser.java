@@ -7,11 +7,12 @@ import java.util.List;
 
 import junit.framework.Assert;
 
-import org.itas.core.Config;
-import org.itas.core.Resource;
 import org.itas.core.resources.XmlLoader.XmlLoaderImpl;
 import org.itas.core.util.ItPaths;
 import org.junit.Test;
+
+import com.uxuan.core.Config;
+import com.uxuan.core.Resource;
 
 public class TestResourcesParser implements ItPaths {
 

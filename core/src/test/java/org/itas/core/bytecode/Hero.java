@@ -3,8 +3,6 @@ package org.itas.core.bytecode;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
-import org.itas.core.GameObjectAotuID;
-import org.itas.core.Simple;
 import org.itas.core.annotation.Clazz;
 import org.itas.core.annotation.Size;
 import org.itas.core.bytecode.Model.Effect;
@@ -12,7 +10,10 @@ import org.itas.core.bytecode.Model.HeroType;
 import org.itas.core.bytecode.Model.SexType;
 import org.itas.core.bytecode.Model.SkillType;
 
-public class Hero extends GameObjectAotuID {
+import com.uxuan.core.BaseObjectWithAutoID;
+import com.uxuan.core.Simple;
+
+public class Hero extends BaseObjectWithAutoID {
 
 	protected Hero(String Id) {
 		super(Id);

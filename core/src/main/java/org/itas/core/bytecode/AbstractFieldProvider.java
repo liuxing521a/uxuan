@@ -6,9 +6,10 @@ import javassist.ClassPool;
 import javassist.CtClass;
 
 import org.itas.common.ItasException;
-import org.itas.core.GameObject;
-import org.itas.core.GameObjectAotuID;
 import org.itas.core.util.FirstChar;
+
+import com.uxuan.core.BaseObject;
+import com.uxuan.core.BaseObjectWithAutoID;
 
 /**
  * 属性[field]字节码动态生成
@@ -59,17 +60,17 @@ abstract class AbstractFieldProvider implements FirstChar {
 		
 		public final static Class<?> string_ = java.lang.String.class;
 		
-		public final static Class<?> simple_ = org.itas.core.Simple.class;
+		public final static Class<?> simple_ = com.uxuan.core.Simple.class;
 		
-		public final static Class<?> resource_ = org.itas.core.Resource.class;
+		public final static Class<?> resource_ = com.uxuan.core.Resource.class;
 		
 		public final static Class<?> enum_ = java.lang.Enum.class;
 
-		public final static Class<?> enumByte_ = org.itas.core.EnumByte.class;
+		public final static Class<?> enumByte_ = com.uxuan.core.EnumByte.class;
 		
-		public final static Class<?> enumInt_ = org.itas.core.EnumInt.class;
+		public final static Class<?> enumInt_ = com.uxuan.core.EnumInt.class;
 		
-		public final static Class<?> enumString_ = org.itas.core.EnumString.class;
+		public final static Class<?> enumString_ = com.uxuan.core.EnumString.class;
 		
 		public final static Class<?> list_ = java.util.List.class;
 		
@@ -83,9 +84,9 @@ abstract class AbstractFieldProvider implements FirstChar {
 		
 		public final static Class<?> timeStamp = Timestamp.class;
 
-		public final static Class<?> gameObject = GameObject.class;
+		public final static Class<?> gameObject = BaseObject.class;
 
-		public final static Class<?> gameBaseAotuID = GameObjectAotuID.class;
+		public final static Class<?> gameBaseAotuID = BaseObjectWithAutoID.class;
 
 	}
 	

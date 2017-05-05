@@ -26,9 +26,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.itas.core.Builder;
-import org.itas.core.Pool;
-import org.itas.core.Resource;
 import org.itas.core.annotation.CanNull;
 import org.itas.core.annotation.Clazz;
 import org.itas.core.util.Enums;
@@ -36,6 +33,9 @@ import org.itas.core.util.Enums;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+import com.uxuan.core.Builder;
+import com.uxuan.core.Pool;
+import com.uxuan.core.Resource;
 
 @SuppressWarnings({ "rawtypes", "unchecked" })
 final class Attribute {

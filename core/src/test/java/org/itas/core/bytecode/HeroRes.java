@@ -1,6 +1,6 @@
 package org.itas.core.bytecode;
 
-import org.itas.core.Resource;
+import com.uxuan.core.Resource;
 
 public class HeroRes extends Resource {
 

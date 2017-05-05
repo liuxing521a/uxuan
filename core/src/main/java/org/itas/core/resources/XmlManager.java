@@ -3,17 +3,17 @@ package org.itas.core.resources;
 import java.util.Collection;
 import java.util.List;
 
-import org.itas.core.Builder;
-import org.itas.core.Config;
-import org.itas.core.Ioc;
-import org.itas.core.Pool.ResPool;
-import org.itas.core.Resource;
-import org.itas.core.Service.OnBinder;
-import org.itas.core.Service.OnShutdown;
-import org.itas.core.Service.OnStartUP;
 import org.itas.core.resources.ResPoolImpl.ResPoolImplBuilder;
 
 import com.google.inject.Binder;
+import com.uxuan.core.Builder;
+import com.uxuan.core.Config;
+import com.uxuan.core.Ioc;
+import com.uxuan.core.Resource;
+import com.uxuan.core.Pool.ResPool;
+import com.uxuan.core.Service.OnBinder;
+import com.uxuan.core.Service.OnShutdown;
+import com.uxuan.core.Service.OnStartUP;
 
 public class XmlManager implements OnShutdown, OnStartUP, OnBinder {
 

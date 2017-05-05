@@ -3,7 +3,7 @@ package org.itas.core.resources;
 import java.util.List;
 import java.util.Set;
 
-import org.itas.core.Config;
+import com.uxuan.core.Config;
 
 public class SkinConf extends Config {
 

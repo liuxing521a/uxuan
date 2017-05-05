@@ -2,7 +2,7 @@ package org.itas.core.resources;
 
 import java.util.List;
 
-import org.itas.core.Resource;
+import com.uxuan.core.Resource;
 
 
 /**

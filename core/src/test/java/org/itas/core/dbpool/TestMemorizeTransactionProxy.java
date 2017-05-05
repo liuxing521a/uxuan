@@ -45,12 +45,12 @@ import java.sql.Statement;
 
 import org.easymock.classextension.EasyMock;
 import org.itas.core.dbpool.hooks.CoverageHook;
-import org.itas.core.dbpool.proxy.TransactionRecoveryResult;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.jolbox.bonecp.CommonTestUtils;
+import com.uxuan.core.dbpool.proxy.TransactionRecoveryResult;
 
 /**
  * @author Wallace

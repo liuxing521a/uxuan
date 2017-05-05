@@ -3,8 +3,9 @@ package org.itas.core.net;
 
 import org.itas.buffer.SendAble;
 import org.itas.common.Utils.Objects;
-import org.itas.core.CallBack;
-import org.itas.core.User;
+
+import com.uxuan.core.CallBack;
+import com.uxuan.core.User;
 
 
 public final class IoUtil {

@@ -47,11 +47,11 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock.WriteLock;
 
-import org.itas.core.dbpool.proxy.ConnectionProxy;
 import org.junit.Test;
 import org.slf4j.Logger;
 
 import com.google.common.base.FinalizableReferenceQueue;
+import com.uxuan.core.dbpool.proxy.ConnectionProxy;
 /**
  * @author wwadge
  *

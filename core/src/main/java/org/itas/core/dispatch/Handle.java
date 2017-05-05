@@ -1,7 +1,8 @@
 package org.itas.core.dispatch;
 
-import org.itas.core.User;
 import org.itas.core.net.Message;
+
+import com.uxuan.core.User;
 
 
 /**

@@ -5,11 +5,10 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.itas.core.EnumByte;
-import org.itas.core.EnumInt;
-import org.itas.core.EnumString;
-
 import com.google.common.collect.Maps;
+import com.uxuan.core.EnumByte;
+import com.uxuan.core.EnumInt;
+import com.uxuan.core.EnumString;
 
 /**
  * 支持枚举处理

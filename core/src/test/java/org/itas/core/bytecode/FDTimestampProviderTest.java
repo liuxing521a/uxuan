@@ -8,15 +8,16 @@ import java.util.HashSet;
 import javassist.NotFoundException;
 import junit.framework.Assert;
 
-import org.itas.core.EnumByte;
-import org.itas.core.EnumInt;
-import org.itas.core.EnumString;
-import org.itas.core.GameObject;
-import org.itas.core.GameObjectAotuID;
-import org.itas.core.Resource;
-import org.itas.core.Simple;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.uxuan.core.EnumByte;
+import com.uxuan.core.EnumInt;
+import com.uxuan.core.EnumString;
+import com.uxuan.core.BaseObject;
+import com.uxuan.core.BaseObjectWithAutoID;
+import com.uxuan.core.Resource;
+import com.uxuan.core.Simple;
 
 public class FDTimestampProviderTest extends AbstreactFieldProvider {
 
@@ -55,8 +56,8 @@ public class FDTimestampProviderTest extends AbstreactFieldProvider {
 
 		Assert.assertEquals(false, provider.isType(String.class));
 		Assert.assertEquals(false, provider.isType(Simple.class));
-		Assert.assertEquals(false, provider.isType(GameObject.class));
-		Assert.assertEquals(false, provider.isType(GameObjectAotuID.class));
+		Assert.assertEquals(false, provider.isType(BaseObject.class));
+		Assert.assertEquals(false, provider.isType(BaseObjectWithAutoID.class));
 		Assert.assertEquals(false, provider.isType(EnumByte.class));
 		Assert.assertEquals(false, provider.isType(EnumInt.class));
 		Assert.assertEquals(false, provider.isType(EnumString.class));

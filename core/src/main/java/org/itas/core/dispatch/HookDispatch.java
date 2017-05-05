@@ -1,7 +1,8 @@
 package org.itas.core.dispatch;
 
 import org.itas.common.Logger;
-import org.itas.core.Hook;
+
+import com.uxuan.core.Hook;
 
 public class HookDispatch implements Hook {
 	

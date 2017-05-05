@@ -10,12 +10,13 @@ import java.util.List;
 
 import org.itas.common.ItasException;
 import org.itas.common.Utils.ClassUtils;
-import org.itas.core.Builder;
-import org.itas.core.Config;
-import org.itas.core.Parser;
-import org.itas.core.Resource;
 import org.itas.core.resources.Attribute.AttributeBuilder;
 import org.itas.core.util.Constructors;
+
+import com.uxuan.core.Builder;
+import com.uxuan.core.Config;
+import com.uxuan.core.Parser;
+import com.uxuan.core.Resource;
 
 
 final class XmlBean {
